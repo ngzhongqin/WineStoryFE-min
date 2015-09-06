@@ -1,0 +1,37 @@
+.checkout-account{
+    background-color: #999999;
+    border: 0;
+    color: #000000;
+    border-radius: 0;
+    padding: 20px 25px;
+    font-size: 14px;
+    border: 0;
+    line-height: 1.8em;
+}
+
+.checkout-account-link{
+    color: #660000; 
+    text-decoration: underline;    
+}
+
+.checkout-review-order-button{
+    background-color: #111111;
+    float: right;
+}
+
+.checkout-at-cart-button{
+    background-color: #111111;
+    float: right;
+}
+
+.checkout-shipping-address{
+    background-color: #ffffff;
+    border: 0;
+    color: #000;
+    border-radius: 0;
+    padding-top: 20px;
+    padding: 20px 25px;
+    font-size: 14px;
+    border: 0;
+    line-height: 1.8em;
+}

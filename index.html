@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="styles/foundation.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/body.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/signup.css">
+    <link rel="stylesheet" href="styles/store/wine.css">
+    <link rel="stylesheet" href="styles/store/store.css">
+    <link rel="stylesheet" href="styles/checkout.css">
+    <link rel="stylesheet" href="styles/foundation-icons/foundation-icons.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="winestoryApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  <div class="contain-to-grid sticky">
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+    <div class="logo">
+      <a href="#/"><img src="images/logo-small.png"></a>
+    </div>
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+
+            <li ng-if="user" class="has-dropdown">
+              <a href="#">{{user.full_name}}</a>
+              <ul class="dropdown">
+                <li><a href="#">Profile</a></li>
+                <li ><a href="#">Orders</a></li>
+                <li ng-if="user" > <a href="#/logout">Logout</a></li>
+              </ul>
+            </li>
+
+        <li> <a href="#/store">Store</a></li>
+        <li ng-if="!user" > <a href="#/signup">Sign Up</a></li>
+        <li ng-if="!user" > <a href="#/login">Login</a></li>
+          
+
+            <li>
+              <a href="#/cart">
+                  <ngcart-summary></ngcart-summary>
+              </a>  
+            </li>
+          
+
+      </ul>
+
+    </section>
+  </nav>
+</div>
+
+
+
+  <div class="row">
+    <div class="small-2 medium-2 large-2 columns"></div>
+    <div class="small-12 medium- 12 large-12 columns">
+    
+    <div class="greenbox">
+        <alert ng-if="code" data-alert class="alert-box success round">
+            {{code}} : {{message}}
+            <a class="close" class="close">&times;</a>
+        </alert> 
+    </div>
+
+    <div class="redbox">
+        <alert ng-if="code" data-alert class="alert-box warning round">
+            {{code}} : {{message}}
+            <a class="close" class="close">&times;</a>
+        </alert>
+    </div>
+
+        
+
+     <div class="container">
+    <div ng-view=""></div>
+    </div>
+
+
+
+
+
+
+    </div>
+    <div class="small-2 medium-2 large-2 columns"></div>
+  </div>
+
+
+
+<!--
+<footer class="footer">
+  <div class="row">
+      <div class="small-6 medium-4 large-2 columns"><span>Home</span></div>
+      <div class="small-6 medium-4 large-2 columns"><span>About</span></div>
+      <div class="small-6 medium-4 large-2 columns"><span>FAQs</span></div>
+      <div class="small-6 medium-4 large-2 columns"><span>Contact</span></div>
+      <div class="small-6 medium-4 large-2 columns"><span>Terms</span></div>
+      <div class="small-6 medium-4 large-2 columns"><span>Privacy</span></div>
+    <div class="small-12 medium-4 large-6 columns"><span>© WINESTORY.SG 2015</span></div>
+    <div class="small-12 medium-4 large-6 columns right stamp"></div>
+  </div>
+</footer>
+-->
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="scripts/vendor/modernizr.js"></script>
+    <script src="scripts/vendor/jquery.js"></script>
+    <script src="scripts/vendor/angular.js"></script>
+    <script src="scripts/vendor/angular-animate.js"></script>
+    <script src="scripts/vendor/angular-aria.js"></script>
+    <script src="scripts/vendor/angular-cookies.js"></script>
+    <script src="scripts/vendor/angular-messages.js"></script>
+    <script src="scripts/vendor/angular-resource.js"></script>
+    <script src="scripts/vendor/angular-route.js"></script>
+    <script src="scripts/vendor/angular-sanitize.js"></script>
+    <script src="scripts/vendor/angular-touch.js"></script>
+    <script src="scripts/vendor/fastclick.js"></script>
+    <script src="scripts/vendor/jquery.cookie.js"></script>
+    <script src="scripts/vendor/jquery.placeholder.js"></script>
+    <script src="scripts/vendor/foundation.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+<!--    <script src="scripts/stickyFooter.js"></script>-->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        
+        <script src="scripts/app.js"></script>
+        <script src="scripts/services/AlertBoxService.js"></script>
+        <script src="scripts/services/SplitArrayService.js"></script>
+        <script src="scripts/services/CartService.js"></script>
+        <script src="scripts/services/UserService2.js"></script>
+        <script src="scripts/services/StoreService.js"></script>
+        <script src="scripts/services/LoginService.js"></script>
+        <script src="scripts/services/LogoutService.js"></script>
+        <script src="scripts/services/SignUpService.js"></script>
+        <script src="scripts/services/ngCart.js"></script>
+      
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/signup.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/logout.js"></script>
+        <script src="scripts/controllers/store/store.js"></script>
+        <script src="scripts/controllers/store/viewWine.js"></script>
+        <script src="scripts/controllers/cart.js"></script>
+        <script src="scripts/controllers/checkout.js"></script>
+        <script src="scripts/controllers/reviewOrder.js"></script>
+        
+
+        <!-- endbuild -->
+</body>
+</html>

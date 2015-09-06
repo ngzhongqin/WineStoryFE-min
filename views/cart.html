@@ -1,0 +1,8 @@
+<h2>Cart</h2>
+
+<div class="small-12 large-5 columns">
+    <ngcart-cart></ngcart-cart>
+    <div ng-if="!isCartEmpty()" class="button checkout-at-cart-button" ng-click="checkout()">Checkout</div>
+    <div ng-if="isCartEmpty()" class="button checkout-at-cart-button" ng-click="store()">Continue Shopping</div>
+</div>
+

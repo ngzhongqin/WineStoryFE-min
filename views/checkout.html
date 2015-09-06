@@ -1,0 +1,155 @@
+<h2>Checkout</h2>
+
+<!--
+<p>Checkout: {{checkout}}</p>
+<p>Cart: {{ngCart.getCart().items}}</p>
+-->
+
+<div class="row">
+  
+    <div class="small-12 large-5 columns">
+        <ngcart-cart></ngcart-cart>
+    </div>
+    <div class="large-1 columns"> </div>
+    
+    <div ng-if="!isCartEmpty()" class="small-12 large-7 columns">
+        <div class="row">
+            <h4>Shipping Information</h4>
+        </div>
+        <div ng-if="!user" class="row checkout-account">
+            You are currently checking out as a guest.
+            </br>
+            If you've already registered with WineStory.sg, please go ahead and <a  class="checkout-account-link" href="#/login">Log In</a>.
+            </br>
+            If not, <a class="checkout-account-link" href="#/signup">Sign Up</a>. It's fast and easy.
+        </div>
+        
+        <div ng-if="user" class="row checkout-account">
+            Welcome back, {{user.full_name}}
+        </div>
+        
+        <div class="row checkout-shipping-address">
+            <div class="small-12 medium-12 large-12 columns">
+                
+                <form>
+                  <div class="row">
+                    <div class="large-12 columns">
+                        <div class="row collapse">
+                            <div class="large-3 columns">
+                              <span class="prefix">Name</span>
+                            </div>
+                            <div class="large-9 columns">
+                              <input type="text" placeholder="Name" ng-model="checkout.name"/>
+                            </div>  
+                        </div>
+                    </div>
+                  </div>
+                    
+                  <div class="row">
+                    <div class="large-12 columns">
+                        <div class="row collapse">
+                            <div class="large-3 columns">
+                              <span class="prefix">Email</span>
+                            </div>
+                            <div class="large-9 columns">
+                              <input type="email" placeholder="Email" ng-model="checkout.email"/>
+                            </div>  
+                        </div>
+                    </div>
+                  </div>
+                    
+                  <div class="row">
+                    <div class="large-12 columns">
+                        <div class="row collapse">
+                            <div class="large-3 columns">
+                              <span class="prefix">Address</span>
+                            </div>
+                            <div class="large-9 columns">
+                              <input type="text" placeholder="Address" ng-model="checkout.address" />
+                            </div>  
+                        </div>
+                    </div>
+                  </div>   
+                    
+                  <div class="row">
+                    <div class="large-6 columns">
+                        <div class="row collapse">
+                            <div class="large-3 columns">
+                              <span class="prefix">Postal</span>
+                            </div>
+                            <div class="large-9 columns">
+                              <input type="text" maxlength="6" placeholder="Postal Code" ng-model="checkout.postal_code"/>
+                            </div>  
+                        </div>
+                    </div>
+                      
+                      <div class="large-6 columns">
+                        <div class="row collapse">
+                            <div class="large-3 columns">
+                              <span class="prefix">Mobile</span>
+                            </div>
+                            <div class="large-9 columns">
+                              <input type="text" maxlength="8" placeholder="Mobile" ng-model="checkout.mobile" />
+                            </div>  
+                        </div>
+                    </div>
+                  </div>   
+                    
+                    
+                  <div class="row">
+                    <div class="large-6 columns">
+                        <div class="row collapse">
+                            <div class="large-3 columns">
+                              <span class="prefix">City</span>
+                            </div>
+                            <div class="large-9 columns">
+                              <input type="text" value="Singapore" readonly />
+                            </div>  
+                        </div>
+                    </div>
+                      
+                      <div class="large-6 columns">
+                        <div class="row collapse">
+                            <div class="large-3 columns">
+                              <span class="prefix">Country</span>
+                            </div>
+                            <div class="large-9 columns">
+                              <input type="text" value="Singapore" readonly />
+                            </div>  
+                        </div>
+                    </div>
+                  </div>   
+                    
+                  <div class="row">
+                    <div class="large-12 columns">                        
+                      <label>Other Instructions
+                        <textarea placeholder="Other Instructions" ng-model="checkout.other_instructions"></textarea>
+                      </label>
+                    </div>
+                  </div>
+                    
+                    
+                <div class="button checkout-review-order-button" ng-click="review_order()">Review Order</div>
+                    
+                </form>
+                
+                
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_cart">
+<input type="hidden" name="upload" value="1">
+<input type="hidden" name="business" value="ngzhongqin@mail.com">
+<input type="hidden" name="currency_code" value="US">
+
+<input type="hidden" name="item_name_1" value="beach ball">
+<input type="hidden" name="amount_1" value="15">
+
+<input type="hidden" name="item_name_2" value="towel">
+<input type="hidden" name="amount_2" value="20">
+
+<input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+                   
+            </div>          
+        </div>
+    </div>
+</div>
