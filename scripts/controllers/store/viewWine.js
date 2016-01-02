@@ -8,8 +8,9 @@
  * Controller of the winestoryApp
  */
 
-app.controller('WineViewCtrl', function ($scope, $http, $location, $routeParams, $cookies, StoreService, CartService) {
-
+app.controller('WineViewCtrl', function ($scope, $http, $location, $routeParams, 
+                                          $cookies, StoreService, CartService, AlertBoxService) {
+  AlertBoxService.hideAlerts();
   console.log("WineViewCtrl - $routeParams.param1: "+$routeParams.param1);
     
   StoreService.get_wine($routeParams.param1,function(data){

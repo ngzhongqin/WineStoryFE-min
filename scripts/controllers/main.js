@@ -8,8 +8,8 @@
  * Controller of the winestoryApp
  */
 angular.module('winestoryApp')
-  .controller('MainCtrl', function (UserService2) {
-    
+  .controller('MainCtrl', function (UserService2,AlertBoxService) {
+    AlertBoxService.hideAlerts();
     UserService2.user(function(data){});
     
     this.awesomeThings = [

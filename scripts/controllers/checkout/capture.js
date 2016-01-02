@@ -8,8 +8,10 @@
  * Controller of the winestoryApp
  */
 
-app.controller('CheckoutCaptureCtrl', function ($scope, ngCart, $cookies, $rootScope, 
+app.controller('CheckoutCaptureCtrl', function ($scope, ngCart, $cookies, $rootScope,
+                                                 AlertBoxService,
                                           UserService2, CartService, $location) {
+     AlertBoxService.hideAlerts();
     ngCart.setTaxRate(7);
     ngCart.setShipping(20);
     

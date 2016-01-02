@@ -28,9 +28,10 @@ app.service('OrderService',['$http','$cookies','$rootScope', '$location', 'Alert
             
             $rootScope.code = data.returnStatus.code;
             $rootScope.message = data.returnStatus.message;           
-            AlertBoxService.showAlert(data.returnStatus.colour);
+            AlertBoxService.showAlertForever(data.returnStatus.colour);
             
             if(data.returnStatus.code=="ORD001-100"){
+                AlertBoxService.hideAlerts();
                 ngCart.init();
                 $location.path('/checkout/complete');
             }

@@ -11,9 +11,9 @@
 app.controller('StoreCtrl', function ($scope, $http,
                                        $routeParams, SplitArrayService,
                                        $cookies, $rootScope, CartService,
-                                       UserService2,
+                                       UserService2, AlertBoxService,
                                        ngCart, StoreService) {
-
+    AlertBoxService.hideAlerts();  
     UserService2.user(function(data) {}); 
     
     StoreService.get_all(function(data) {

@@ -8,8 +8,9 @@
  * Controller of the winestoryApp
  */
 
-app.controller('LoginCtrl', function ($scope, $rootScope, $http, $cookies, $location, LoginService) {
-
+app.controller('LoginCtrl', function ($scope, $rootScope, $http, $cookies, 
+                                       $location, LoginService, AlertBoxService) {
+    AlertBoxService.hideAlerts();
 	$scope.submitPost = function () {
         LoginService.login($scope.login.email,$scope.login.password,function(data){});
 	};

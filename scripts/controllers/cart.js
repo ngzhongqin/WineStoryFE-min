@@ -8,7 +8,9 @@
  * Controller of the winestoryApp
  */
 
-app.controller('CartCtrl', function ($scope, ngCart, $cookies, $rootScope, UserService2, $location) {
+app.controller('CartCtrl', function ($scope, ngCart, $cookies, $rootScope, 
+                                      UserService2, $location, AlertBoxService) {
+     AlertBoxService.hideAlerts();
     UserService2.user(function(data) {}); 
     
     ngCart.setTaxRate(7);
