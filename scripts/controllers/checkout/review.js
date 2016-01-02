@@ -9,7 +9,7 @@
  */
 
 app.controller('CheckoutReviewCtrl', function ($scope, ngCart, $cookies, $rootScope,
-                                             OrderService, SpinnerService,
+                                             OrderService, SpinnerService, AlertBoxService,
                                           UserService2, CartService, $location) {
     ngCart.setTaxRate(7);
     ngCart.setShipping(20);
@@ -26,15 +26,16 @@ app.controller('CheckoutReviewCtrl', function ($scope, ngCart, $cookies, $rootSc
     Stripe.setPublishableKey('pk_test_TqJOP2pwqV8UkJCfTDqDAvtb');
 
       $scope.handleStripe = function(status, response){
+          AlertBoxService.hideAlerts();
           SpinnerService.showSpinner();
           console.log("reponse: ");
         if(response.error) {
           // there was an error. Fix it.
             console.log("reponse: error");
-            
+            SpinnerService.hideSpinner();
             $rootScope.code = "STP-900";
-            $rootScope.message = response.error;           
-            AlertBoxService.showAlert("R");
+            $rootScope.message = "Please check card details. "+response.error.message;           
+            AlertBoxService.showAlertForever("R");
             
         } else {
           // got stripe token, now charge it or smt

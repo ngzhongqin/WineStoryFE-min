@@ -2,6 +2,8 @@ app.service('AlertBoxService',['$http','$cookies','$rootScope',
                                function($http,$cookies,$rootScope){
     
     this.showAlert = showAlert;
+    this.showAlertForever = showAlertForever;
+    this.hideAlerts = hideAlerts;
     
     function showAlert(colour){
         console.log("AlertBoxService - showAlert colour-"+colour); 
@@ -12,7 +14,6 @@ app.service('AlertBoxService',['$http','$cookies','$rootScope',
                 showGreen(); 
             }
         }
-        
     }
     
     function showGreen(){
@@ -33,6 +34,34 @@ app.service('AlertBoxService',['$http','$cookies','$rootScope',
         setTimeout(function(){ 
              $(".redbox").fadeOut(500);
         }, 2000);
+    };
+                                   
+   function showAlertForever(colour){
+        console.log("AlertBoxService - showAlertForever colour-"+colour); 
+        if(colour == 'R'){
+            showRedForever();
+        }else{
+            if(colour == 'G'){
+                showGreenForever(); 
+            }
+        }
+    }
+                                   
+   function showGreenForever(){
+        $(".greenbox").show();
+        $(".redbox").hide();
+        $(".greenbox").fadeIn(50);
+    };
+    
+    function showRedForever(){
+        $(".redbox").show();
+        $(".greenbox").hide();
+        $(".redbox").fadeIn(50);
+    };
+                                   
+    function hideAlerts(){
+        $(".redbox").hide();
+        $(".greenbox").hide();
     };
     
 }]);
