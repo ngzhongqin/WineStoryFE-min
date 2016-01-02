@@ -24,7 +24,8 @@ var app = angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'angularPayments'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -71,6 +72,10 @@ var app = angular
       .when('/review_order', {
         templateUrl: 'views/review_order.html',
         controller: 'ReviewOrderCtrl'
+      })
+      .when('/orders', {
+        templateUrl: 'views/orders/orders.html',
+        controller: 'OrdersCtrl'
       })
       .otherwise({
         redirectTo: '/'

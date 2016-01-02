@@ -1,8 +1,6 @@
 app.service('AlertBoxService',['$http','$cookies','$rootScope', 
                                function($http,$cookies,$rootScope){
     
-//    this.showGreen = showGreen;
-//    this.showRed = showRed;
     this.showAlert = showAlert;
     
     function showAlert(colour){
@@ -11,7 +9,7 @@ app.service('AlertBoxService',['$http','$cookies','$rootScope',
             showRed();
         }else{
             if(colour == 'G'){
-                  showGreen(); 
+                showGreen(); 
             }
         }
         

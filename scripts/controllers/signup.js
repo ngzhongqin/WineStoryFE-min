@@ -13,7 +13,7 @@ app.controller('SignUpCtrl', function ($scope, $rootScope, $http, $cookies, $loc
 	$scope.submitPost = function () {
         SignUpService.sign_up($scope.signup.full_name,
                               $scope.signup.email,
-                              $scope.signup.full_name,
+                              $scope.signup.password,
                               function(data){});
         
 	};

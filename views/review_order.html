@@ -1,5 +1,5 @@
 <h2>Checkout - Review</h2>
-{{review_order}}
+<!--{{review_order}}-->
 
 <div class="row">
   
@@ -69,9 +69,69 @@
         <td colspan="3">{{review_order.other_instructions}}</td>
       </tr>
     </table>
-        
+        {{name}}
     </div>
     
-    <div class="large-1 columns"> </div>
+    <div class="large-5 columns"> 
+
+<!--
+        <form action="" method="POST">
+          <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="{{key}}"
+            data-amount="{{amount}}"
+            data-name="{{store_name}}"
+            data-description="{{item}}"
+            data-image="images/logo-small.png"
+            data-locale="auto">
+            
+            var token_value = document.getElementById("stripeToken").value;
+          </script>
+        </form>
+-->
+        
+        
+            <form stripe-form="handleStripe" name="myForm">
+
+              <div>
+                <label for="">Card number</label>
+                <input type="text" class="input-block-level" 
+                       ng-model="number" payments-validate="card" 
+                       payments-format="card" payments-type-model="type" 
+                       ng-class="myForm.number.$card.type"/>
+              </div>
+              
+              <div>
+                <label for="">Expiry</label>
+                <input type="text" 
+                       class="input-block-level" 
+                       ng-model="expiry" 
+                       payments-validate="expiry" 
+                       payments-format="expiry" />
+              </div>
+              
+              <div>
+                <label for="">Name on card </label>
+                <input type="text" class="input-block-level">
+              </div>
+              
+              <div>
+                <label for="">CVC</label>
+                <input type="text" 
+                       class="input-block-level" 
+                       ng-model="cvc" 
+                       payments-validate="cvc" 
+                       payments-format="cvc" 
+                       payments-type-model="type"/>
+              </div>
+              
+              <div>
+                <button type="submit" class="btn btn-primary btn-large">Submit</button>
+              </div>
+            </form>
+        
+        
+        
+    </div>
     
 </div>

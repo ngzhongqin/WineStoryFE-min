@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="styles/store/wine.css">
     <link rel="stylesheet" href="styles/store/store.css">
     <link rel="stylesheet" href="styles/checkout.css">
+    <link rel="stylesheet" href="styles/payment.css">
     <link rel="stylesheet" href="styles/foundation-icons/foundation-icons.css">
     <!-- endbuild -->
   </head>
@@ -44,7 +45,7 @@
               <a href="#">{{user.full_name}}</a>
               <ul class="dropdown">
                 <li><a href="#">Profile</a></li>
-                <li ><a href="#">Orders</a></li>
+                <li ><a href="#/orders">Orders</a></li>
                 <li ng-if="user" > <a href="#/logout">Logout</a></li>
               </ul>
             </li>
@@ -165,6 +166,9 @@
         <script src="scripts/services/LogoutService.js"></script>
         <script src="scripts/services/SignUpService.js"></script>
         <script src="scripts/services/ngCart.js"></script>
+        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+        <script src="scripts/services/angular-payments.js"></script>
+        <script src="scripts/services/OrderService.js"></script>
       
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
@@ -176,6 +180,7 @@
         <script src="scripts/controllers/cart.js"></script>
         <script src="scripts/controllers/checkout.js"></script>
         <script src="scripts/controllers/reviewOrder.js"></script>
+        <script src="scripts/controllers/orders/orders.js"></script>
         
 
         <!-- endbuild -->
