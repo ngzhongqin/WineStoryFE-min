@@ -64,14 +64,18 @@ var app = angular
         controller: 'CartCtrl',
         controllerAs: 'cart'
       })
-      .when('/checkout', {
-        templateUrl: 'views/checkout.html',
-        controller: 'CheckoutCtrl',
+      .when('/checkout/capture', {
+        templateUrl: 'views/checkout/capture.html',
+        controller: 'CheckoutCaptureCtrl',
         controllerAs: 'checkout'
       })
-      .when('/review_order', {
-        templateUrl: 'views/review_order.html',
-        controller: 'ReviewOrderCtrl'
+      .when('/checkout/review', {
+        templateUrl: 'views/checkout/review.html',
+        controller: 'CheckoutReviewCtrl'
+      })
+      .when('/checkout/complete', {
+        templateUrl: 'views/checkout/complete.html',
+        controller: 'CheckoutCompleteCtrl'
       })
       .when('/orders', {
         templateUrl: 'views/orders/orders.html',

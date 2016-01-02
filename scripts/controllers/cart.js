@@ -15,7 +15,7 @@ app.controller('CartCtrl', function ($scope, ngCart, $cookies, $rootScope, UserS
     ngCart.setShipping(20);
     
     $scope.checkout = function(){
-        $location.path('/checkout');
+        $location.path('/checkout/capture');
     }
     
     $scope.isCartEmpty = function(){

@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc function
- * @name winestoryApp.controller:ReviewOrderCtrl
+ * @name winestoryApp.controller:CheckoutReviewCtrl
  * @description
- * # ReviewOrderCtrl
+ * # CheckoutReviewCtrl
  * Controller of the winestoryApp
  */
 
-app.controller('ReviewOrderCtrl', function ($scope, ngCart, $cookies, $rootScope,
-                                             OrderService,
+app.controller('CheckoutReviewCtrl', function ($scope, ngCart, $cookies, $rootScope,
+                                             OrderService, SpinnerService,
                                           UserService2, CartService, $location) {
     ngCart.setTaxRate(7);
     ngCart.setShipping(20);
@@ -26,6 +26,7 @@ app.controller('ReviewOrderCtrl', function ($scope, ngCart, $cookies, $rootScope
     Stripe.setPublishableKey('pk_test_TqJOP2pwqV8UkJCfTDqDAvtb');
 
       $scope.handleStripe = function(status, response){
+          SpinnerService.showSpinner();
           console.log("reponse: ");
         if(response.error) {
           // there was an error. Fix it.

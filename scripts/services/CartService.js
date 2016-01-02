@@ -1,5 +1,5 @@
-app.service('CartService',['$http','$cookies','$rootScope', '$location',
-                           function($http,$cookies,$rootScope,$location){
+app.service('CartService',['$http','$cookies','$rootScope', '$location', 'SpinnerService',
+                           function($http,$cookies,$rootScope,$location,SpinnerService){
     this.prep_cart = prepCart;                
     this.getSavedReviewOrderData=get_review_order_data;
                                
@@ -14,6 +14,8 @@ app.service('CartService',['$http','$cookies','$rootScope', '$location',
     }
 
     function prepCart(ngCart,checkout,callback) {
+        SpinnerService.showSpinner();       
+
         console.log("CartService - prepCart");
         var session_id = $cookies.get('winestory_session');
         var req_url = backendHostname+'/cart?action=PrepCart'+'&'+'session_id='+session_id;
@@ -32,8 +34,9 @@ app.service('CartService',['$http','$cookies','$rootScope', '$location',
             data: {data: data}
         }).success(function (data, status, header, config){
             callback(data);
+            SpinnerService.hideSpinner();
             save_review_order_data(data.data);
-            $location.path('/review_order');
+            $location.path('/checkout/review');
         });
     };
                                

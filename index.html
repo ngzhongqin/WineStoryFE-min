@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="styles/store/store.css">
     <link rel="stylesheet" href="styles/checkout.css">
     <link rel="stylesheet" href="styles/payment.css">
+      <link rel="stylesheet" href="styles/spinner.css">
+      
     <link rel="stylesheet" href="styles/foundation-icons/foundation-icons.css">
     <!-- endbuild -->
   </head>
@@ -95,7 +97,7 @@
     </div>
 
 
-
+        <div class="loading">Loading&#8230;</div>
 
 
 
@@ -158,6 +160,7 @@
         
         <script src="scripts/app.js"></script>
         <script src="scripts/services/AlertBoxService.js"></script>
+        <script src="scripts/services/SpinnerService.js"></script>
         <script src="scripts/services/SplitArrayService.js"></script>
         <script src="scripts/services/CartService.js"></script>
         <script src="scripts/services/UserService2.js"></script>
@@ -178,11 +181,17 @@
         <script src="scripts/controllers/store/store.js"></script>
         <script src="scripts/controllers/store/viewWine.js"></script>
         <script src="scripts/controllers/cart.js"></script>
-        <script src="scripts/controllers/checkout.js"></script>
-        <script src="scripts/controllers/reviewOrder.js"></script>
+        <script src="scripts/controllers/checkout/capture.js"></script>
+        <script src="scripts/controllers/checkout/review.js"></script>
+      <script src="scripts/controllers/checkout/complete.js"></script>
         <script src="scripts/controllers/orders/orders.js"></script>
         
-
+<script type="text/javascript">
+    $(".loading").hide();
+    $(".greenbox").hide();
+    $(".redbox").hide();
+</script>
+      
         <!-- endbuild -->
 </body>
 </html>
