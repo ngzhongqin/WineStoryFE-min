@@ -3,6 +3,7 @@ app.service('OrderService',['$http','$cookies','$rootScope', '$location', 'Alert
 
     this.submit_order = submit_order;
     this.get_all_user_orders = get_all_user_orders;
+    this.view_order = view_order;
                                
     function submit_order(token,ngCart,checkout,callback) {
         console.log("OrderService - SUBMIT_ORDER");
@@ -67,5 +68,33 @@ app.service('OrderService',['$http','$cookies','$rootScope', '$location', 'Alert
         });
     };
                                
-                            
+   function view_order(order_id,callback) {
+        SpinnerService.showSpinner();       
+        console.log("OrderService - GET_SINGLE_ORDER");
+        var session_id = $cookies.get('winestory_session');
+        var req_url = backendHostname+'/order?action=GET_SINGLE_ORDER'
+                        +'&'+'session_id='+session_id
+                        +'&'+'order='+order_id;;
+       
+        console.log("OrderService - GET_SINGLE_ORDER");
+        var data = {};
+       
+        $http({
+            url: req_url,
+            method: 'POST',
+            headers: {
+                'Content-Type':  "text/plain"
+            },
+            data: {data: data}
+        }).success(function (data, status, header, config){
+            callback(data);
+            SpinnerService.hideSpinner();       
+
+            $rootScope.code = data.returnStatus.code;
+            $rootScope.message = data.returnStatus.message;           
+            AlertBoxService.showAlert(data.returnStatus.colour);
+            
+        });
+    };
+                               
 }]);

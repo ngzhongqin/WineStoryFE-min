@@ -81,6 +81,10 @@ var app = angular
         templateUrl: 'views/orders/orders.html',
         controller: 'OrdersCtrl'
       })
+      .when('/orders/view/:param1', {
+        templateUrl: 'views/orders/view.html',
+        controller: 'OrderViewCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
