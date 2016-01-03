@@ -3,11 +3,9 @@
     Your cart is empty
 </div>
 
-<!--<p>Shipping {{ngCart.getShipping()}}</p>-->
-
 <div class="table" ng-show="ngCart.getTotalItems() > 0">
 
-    <table class="table table-striped ngCart cart">
+    <table class="table table-striped ngCart cart"  style="width:100%">
 
         <thead>
         <tr>
@@ -44,8 +42,6 @@
         <tbody>
         <tr ng-repeat="item in ngCart.getCart().items track by $index">
             <td><span ng-click="ngCart.removeItemById(item.getId())" class="fi-x"></span></td>
-
-<!--            <td>{{ item.getName() }}</td>-->
             <td><a href="/#/wine/{{item.getId()}}">{{item.getName()}}</a></td>
             <td><span class="fi-minus" ng-class="{'disabled':item.getQuantity()==1}"
                       ng-click="item.setQuantity(-1, true)"></span>&nbsp;&nbsp;
