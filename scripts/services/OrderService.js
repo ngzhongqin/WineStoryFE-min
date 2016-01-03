@@ -34,6 +34,7 @@ app.service('OrderService',['$http','$cookies','$rootScope', '$location', 'Alert
                 AlertBoxService.hideAlerts();
                 ngCart.init();
                 $location.path('/checkout/complete');
+                $rootScope.complete = data.data;
             }
             
             
