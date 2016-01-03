@@ -1,3 +1,93 @@
-View Order
 
-{{order}}
+<div class="row">
+  
+    <div class="small-12 large-7 columns">
+        
+    <table id="header_table">
+      <tr>
+        <th>Date</th>
+        <th>Order Id</th>
+        <th>Amount</th>
+        <th>Order Status</th>
+      </tr>
+      <tr>
+        <td>{{order.createddt}}</td>
+        <td>Order {{order.id}}</td>
+        <td>${{order.total_cost}}</td>
+        <td>{{order.order_state}}</td>
+      </tr>
+    </table>    
+        
+    <table style="width:100%">
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th> 
+        <th>Total</th>
+      </tr>
+      <tr ng-repeat="item in order.orderItems">
+        <td><a href="/#/wine/{{item.wine_id}}">{{item.name}}</a></td>
+        <td>{{item.quantity}}</td>
+        <td>${{to2decimal(item.unit_price)}}</td>
+        <td>${{to2decimal(item.unit_price * item.quantity)}}</td>
+      </tr>
+      <tr>
+        <th colspan="3">Tax (7%):</th>
+        <th>${{to2decimal(order.tax)}}</th>
+      </tr>
+      <tr>
+        <th colspan="3">Shipping</th>
+        <th>{{getShipping()}}</th>
+      </tr>
+      <tr>
+        <th colspan="3">Total</th>
+        <th>${{to2decimal(order.total_cost)}}</th>
+      </tr>
+    </table>
+    
+    <table>
+      <tr>
+        <th colspan="4">Shipping Details</th>
+      </tr>
+      <tr>
+        <th colspan="1">Name</th>
+        <td colspan="3">{{order.full_name}}</td>
+      </tr>
+      <tr>
+        <th colspan="1">Email</th>
+        <td colspan="3">{{order.email}}</td>
+      </tr>
+      <tr>
+        <th colspan="1">Address</th>
+        <td colspan="3">{{order.address}}</td>
+    <tr>
+        <th colspan="1">City</th>
+        <td colspan="3">{{order.city}}</td>
+      </tr>
+      <tr>
+        <th colspan="1">Country</th>
+        <td colspan="3">{{order.country}}</td>
+      </tr>
+      </tr>
+      <tr>
+        <th colspan="1">Postal Code</th>
+        <td colspan="3">{{order.postal_code}}</td>
+      </tr>
+      <tr>
+        <th colspan="1">Mobile</th>
+        <td colspan="3">{{order.mobile}}</td>
+      </tr>
+      <tr>
+        <th colspan="1">Other Instructions</th>
+        <td colspan="3">{{order.other_instructions}}</td>
+      </tr>
+    </table>
+       
+    </div>
+    
+    <div class="large-5 columns"> 
+
+           
+    </div>
+    
+</div>
